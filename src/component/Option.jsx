@@ -1,9 +1,10 @@
 import React, { useCallback } from "react";
-import { setDiff } from "../reducers";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setDiff } from "../actions";
 
 function Option(props) {
   const dispatch = useDispatch();
+  const { diff: storeDiff } = useSelector((state) => state.counter);
   const onChange = useCallback(
     (event) => {
       dispatch(setDiff(parseInt(event.target.value)));
@@ -13,7 +14,7 @@ function Option(props) {
 
   return (
     <div>
-      <input value={props.diff} onChange={onChange} />
+      <input value={storeDiff} onChange={onChange} />
     </div>
   );
 }

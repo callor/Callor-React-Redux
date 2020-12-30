@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
-import * as actions from "../reducers";
+import * as actions from "../actions";
 
-function Button(props) {
+function Button() {
   const dispatch = useDispatch();
   const [localCount, setLocalCount] = useState(1);
 
